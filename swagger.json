@@ -9,7 +9,7 @@
     "basePath": "/testing_ghapi",
     "schemes": ["https"],
     "paths": {
-      "/static/latest/district_date.json": {
+      "/dates.json": {
         "get": {
           "produces": ["application/json"],
           "responses": {
