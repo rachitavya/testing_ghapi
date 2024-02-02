@@ -1,0 +1,85 @@
+{
+    "weather": {
+      "31-01-2024": {
+        "Rainfall (mm)": 0,
+        "Max Temperature (ºC)": 30,
+        "Min Temperature (ºC)": 14,
+        "Total cloud cover (okta)": 2,
+        "Max Relative Humidity (%)": 50,
+        "Min Relative Humidity (%)": 19,
+        "Wind speed (km/h)": 6,
+        "Wind direction (deg)": 244
+      },
+      "01-02-2024": {
+        "Rainfall (mm)": 0,
+        "Max Temperature (ºC)": 30,
+        "Min Temperature (ºC)": 15,
+        "Total cloud cover (okta)": 4,
+        "Max Relative Humidity (%)": 59,
+        "Min Relative Humidity (%)": 22,
+        "Wind speed (km/h)": 7,
+        "Wind direction (deg)": 153
+      },
+      "02-02-2024": {
+        "Rainfall (mm)": 0,
+        "Max Temperature (ºC)": 28,
+        "Min Temperature (ºC)": 14,
+        "Total cloud cover (okta)": 6,
+        "Max Relative Humidity (%)": 60,
+        "Min Relative Humidity (%)": 23,
+        "Wind speed (km/h)": 9,
+        "Wind direction (deg)": 248
+      },
+      "03-02-2024": {
+        "Rainfall (mm)": 0,
+        "Max Temperature (ºC)": 28,
+        "Min Temperature (ºC)": 14,
+        "Total cloud cover (okta)": 0,
+        "Max Relative Humidity (%)": 42,
+        "Min Relative Humidity (%)": 19,
+        "Wind speed (km/h)": 8,
+        "Wind direction (deg)": 291
+      },
+      "04-02-2024": {
+        "Rainfall (mm)": 0,
+        "Max Temperature (ºC)": 29,
+        "Min Temperature (ºC)": 13,
+        "Total cloud cover (okta)": 0,
+        "Max Relative Humidity (%)": 29,
+        "Min Relative Humidity (%)": 16,
+        "Wind speed (km/h)": 6,
+        "Wind direction (deg)": 68
+      }
+    },
+    "general_advice": "As per extended range forecast of IMD, rainfall is below normal, maximum and minimum temperature is expected to be normal for Odisha during 04.02.2024 to 10.02.2024 and the minimum (night) temperature is likely to be increased by 2-3 deg. cent. in upcoming days. Farmers are advised to make provision to irrigate their crop as per requirement as well as start sowing (nursery) for summer vegetable cultivation. Spraying operations should be done when the sky is clear because foggy conditions in morning hours along with partly cloudy are expected in the 1st half of this week.",
+    "name_of_crops": [
+      "Paddy (Rabi)",
+      "Mustard",
+      "Groundnut",
+      "Tomato, Brinjal, Chilli",
+      "Tomato"
+    ],
+    "Paddy (Rabi)": {
+      "Crop Stage": "Nursery/Transplanting",
+      "Advisory": "Farmers are advised to complete the nursery sowing of some of the recommended rice varieties (rabi season) i.e. Swarna, 1001, MTU-1156 etc. by the end of this month and also start transplanting of 21-25 days old seedlings in already prepared field."
+    },
+    "Mustard": {
+      "Crop Stage": "Flowering stage/Pod formation (Siliqua)",
+      "Advisory": "To control aphid and mustard sawfly attack in mustard crop, spraying of Imidachlorprid @ 0.3 ml or Thiamethoxam @ 0.3 g and Chlorpyriphos @ 2 ml per liter of water respectively should be advised under clear weather condition."
+    },
+    "Groundnut": {
+      "Crop Stage": "Vegetative stage",
+      "Advisory": "Spraying of Imazethapyr @ 3 ml/ltr of water should be advised within 15 days old crop."
+    },
+    "Tomato, Brinjal, Chilli": {
+      "Crop Stage": "Flowering stage/Fruiting",
+      "Advisory": "To control leaf eating caterpillar and fruit borer/shoot and fruit borer in Tomato and Brinjal, spraying of Emamectin Benzoate @ 0.4 g per liter of water should be advised under clear weather condition."
+    },
+    "Tomato": {
+      "Crop Stage": "Sowing/Vegetative",
+      "Advisory": "Farmers should start sowing of tomato seed for summer cultivation in nursery bed because the prevailing temperature is suitable for germination of seed. One hoeing and weeding operation should be advised in case of crop having vegetative growth stage."
+    },
+    "Animal Husbandry (Cow and Buffalo)": {
+      "Advisory": "Farmers are advised to keep the animal shed clean and dry to avoid disease and insect attack. Also, provide mineral mixture, jaggery etc. along with fresh clean drinking water to the animal and make proper provision (if possible use jute/gunny bags to cover the animal as well as animal shed and straw as bedding material) to protect the animal from the cold."
+    }
+  }
