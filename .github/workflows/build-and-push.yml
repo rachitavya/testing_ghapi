@@ -44,4 +44,4 @@ jobs:
     - name: Run test script
       env:
         REQUEST_URL: ${{ github.event.inputs.request_url }}
-      run: python main.py
+      run: python scraper.py
