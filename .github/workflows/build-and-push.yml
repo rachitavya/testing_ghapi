@@ -2,6 +2,11 @@ name: Test UPCAR Requests
 
 on:
   workflow_dispatch:
+    inputs:
+      request_url:
+        description: 'URL to request'
+        required: true
+        default: 'https://upcar.up.gov.in/en/page/advisory'
   push:
     branches:
       - main
@@ -25,4 +30,6 @@ jobs:
         pip install requests
 
     - name: Run test script
+      env:
+        REQUEST_URL: ${{ github.event.inputs.request_url }}    
       run: python scraper.py
