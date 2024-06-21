@@ -25,4 +25,4 @@ jobs:
         pip install requests
 
     - name: Run test script
-      run: python main.py
+      run: python scraper.py
