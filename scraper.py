@@ -18,7 +18,7 @@ session.mount('https://', adapter)
 
 try:
     print("Sending request...")
-    response = session.get(url, timeout=10) 
+    response = session.get(url, timeout=100) 
     print(f"Response received with status code: {response.status_code}")
     if response.ok:
         print("Request successful!")
