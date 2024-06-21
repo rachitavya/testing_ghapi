@@ -8,7 +8,7 @@ print(f"URL to request: {url}")
 
 session = requests.Session()
 retry = Retry(
-    total=5,
+    total=3,
     backoff_factor=1,
     status_forcelist=[500, 502, 503, 504]
 )
@@ -18,7 +18,7 @@ session.mount('https://', adapter)
 
 try:
     print("Sending request...")
-    response = session.get(url, timeout=500) 
+    response = session.get(url, timeout=20) 
     print(f"Response received with status code: {response.status_code}")
     if response.ok:
         print("Request successful!")
