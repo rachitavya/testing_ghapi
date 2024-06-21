@@ -41,7 +41,12 @@ jobs:
         ping -c 4 ${{ env.HOSTNAME }} || true  # Try to ping the server
         nslookup ${{ env.HOSTNAME }} || true   # Try to resolve the DNS
 
+    - name: Check server availability with curl
+      run: |
+        echo "Checking server availability using curl"
+        curl -v ${{ github.event.inputs.request_url }} || true
+
     - name: Run test script
       env:
         REQUEST_URL: ${{ github.event.inputs.request_url }}
-      run: python scraper.py
+      run: python main.py
