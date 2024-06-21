@@ -1,4 +1,4 @@
-name: Test UPCAR Requests
+name: Test Requests
 
 on:
   workflow_dispatch:
@@ -7,9 +7,6 @@ on:
         description: 'URL to request'
         required: true
         default: 'https://upcar.up.gov.in/en/page/advisory'
-  push:
-    branches:
-      - main
 
 jobs:
   test:
@@ -29,7 +26,22 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
 
+    - name: Extract hostname
+      id: extract_hostname
+      run: |
+        echo "Extracting hostname from URL"
+        URL="${{ github.event.inputs.request_url }}"
+        HOSTNAME=$(echo $URL | awk -F/ '{print $3}')
+        echo "HOSTNAME=${HOSTNAME}" >> $GITHUB_ENV
+        echo "Extracted hostname: ${HOSTNAME}"
+
+    - name: Debug network environment
+      run: |
+        echo "Checking network connectivity to ${{ env.HOSTNAME }}"
+        ping -c 4 ${{ env.HOSTNAME }} || true  # Try to ping the server
+        nslookup ${{ env.HOSTNAME }} || true   # Try to resolve the DNS
+
     - name: Run test script
       env:
-        REQUEST_URL: ${{ github.event.inputs.request_url }}    
-      run: python scraper.py
+        REQUEST_URL: ${{ github.event.inputs.request_url }}
+      run: python main.py
