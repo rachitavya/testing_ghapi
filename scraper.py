@@ -8,7 +8,7 @@ print(f"URL to request: {url}")
 
 try:
     print("here0")
-    response = requests.get(url)
+    response = requests.get(url, timeout=30)
     print("here")
     soup = BeautifulSoup(response.text, 'html.parser')
 
