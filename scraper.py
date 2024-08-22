@@ -49,43 +49,54 @@ from requests.packages.urllib3.util.retry import Retry
 #     print("LOL")
 
 
-url = 'https://ouat.ac.in/quick-links/agro-advisory-services/'
-rename_districts = {
-    'angul': 'anugul',
-    'balasore': 'baleshwar',
-    'boudh': 'baudh',
-    'deogarh': 'debagarh',
-    'keonjhar': 'kendujhar',
-    'mayurbhanjha': 'mayurbhanj',
-    'nabarangpur': 'nabarangapur',
-    'sonepur': 'subarnapur'
-}    
-try:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+from flask import Flask
+import requests
+from bs4 import BeautifulSoup
 
-    data = []
-    districts = soup.find_all('div', class_='hide1')
-    for district in districts:
-        district_name = district.get('id')[:-1]
-        if district_name in rename_districts.keys():
-            district_name=rename_districts[district_name]
-        data_dict = {'district_name': district_name}
-        table = district.find('table').find('tbody')
-        if len(table.select('tr')) > 0:
-            rows = table.select('tr')[0]
-        else:
-            continue
-        columns = rows.find_all('td')
-        date = columns[1].text.strip()
-        data_dict['date'] = date
-        english_link = columns[2].find('a')['href']
-        odia_link = columns[3].find('a')['href']
-        link_dict = {'english': english_link, 'odia': odia_link}
-        data_dict['link'] = link_dict
-        data.append(data_dict)
-    print(data)
+app = Flask(__name__)
 
-except Exception  as e:
-    print("Error:",e)
+@app.route('/')
+def run_scraper():
+    url = 'https://ouat.ac.in/quick-links/agro-advisory-services/'
+    rename_districts = {
+        'angul': 'anugul',
+        'balasore': 'baleshwar',
+        'boudh': 'baudh',
+        'deogarh': 'debagarh',
+        'keonjhar': 'kendujhar',
+        'mayurbhanjha': 'mayurbhanj',
+        'nabarangpur': 'nabarangapur',
+        'sonepur': 'subarnapur'
+    }
     
+    try:
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        data = []
+        districts = soup.find_all('div', class_='hide1')
+        for district in districts:
+            district_name = district.get('id')[:-1]
+            if district_name in rename_districts.keys():
+                district_name = rename_districts[district_name]
+            data_dict = {'district_name': district_name}
+            table = district.find('table').find('tbody')
+            if len(table.select('tr')) > 0:
+                rows = table.select('tr')[0]
+            else:
+                continue
+            columns = rows.find_all('td')
+            date = columns[1].text.strip()
+            data_dict['date'] = date
+            english_link = columns[2].find('a')['href']
+            odia_link = columns[3].find('a')['href']
+            link_dict = {'english': english_link, 'odia': odia_link}
+            data_dict['link'] = link_dict
+            data.append(data_dict)
+        return {"data": data}
+
+    except Exception as e:
+        return {"error": str(e)}
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
