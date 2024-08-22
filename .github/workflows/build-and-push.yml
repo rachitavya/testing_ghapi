@@ -35,16 +35,16 @@ jobs:
         echo "HOSTNAME=${HOSTNAME}" >> $GITHUB_ENV
         echo "Extracted hostname: ${HOSTNAME}"
 
-    - name: Debug network environment
-      run: |
-        echo "Checking network connectivity to ${{ env.HOSTNAME }}"
-        ping -c 4 ${{ env.HOSTNAME }} || true  # Try to ping the server
-        nslookup ${{ env.HOSTNAME }} || true   # Try to resolve the DNS
+    # - name: Debug network environment
+    #   run: |
+    #     echo "Checking network connectivity to ${{ env.HOSTNAME }}"
+    #     ping -c 4 ${{ env.HOSTNAME }} || true  # Try to ping the server
+    #     nslookup ${{ env.HOSTNAME }} || true   # Try to resolve the DNS
 
-    - name: Check server availability with curl
-      run: |
-        echo "Checking server availability using curl"
-        curl -v ${{ github.event.inputs.request_url }} || true
+    # - name: Check server availability with curl
+    #   run: |
+    #     echo "Checking server availability using curl"
+    #     curl -v ${{ github.event.inputs.request_url }} || true
 
     - name: Run test script
       env:
