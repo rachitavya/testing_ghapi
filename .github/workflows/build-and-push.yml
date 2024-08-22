@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests
+        pip install requests beautifulsoup4
 
     - name: Extract hostname
       id: extract_hostname
@@ -49,4 +49,4 @@ jobs:
     - name: Run test script
       env:
         REQUEST_URL: ${{ github.event.inputs.request_url }}
-      run: python main.py
+      run: python scraper.py
