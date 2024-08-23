@@ -1,9 +1,9 @@
-name: Run Selenium with Firefox
+name: Run Playwright with Firefox
 
 on: [push]
 
 jobs:
-  selenium-job:
+  playwright-job:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,18 +18,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install selenium beautifulsoup4
+        pip install playwright beautifulsoup4 
 
-    - name: Install compatible Firefox and GeckoDriver
+    - name: Install Playwright browsers
       run: |
-        sudo apt-get update
-        sudo apt-get install -y firefox
-        # Download and install the compatible geckodriver version
-        wget https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
-        tar -xzf geckodriver-v0.35.0-linux64.tar.gz
-        sudo mv geckodriver /usr/local/bin/
-        sudo chmod +x /usr/local/bin/geckodriver
+        playwright install
 
-    - name: Run Selenium script
+    - name: Run Playwright script
       run: |
-        python app.py
+        python your_playwright_script.py
