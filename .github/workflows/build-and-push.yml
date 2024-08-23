@@ -24,8 +24,11 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y firefox
-        wget https://github.com/mozilla/geckodriver/releases/download/v0.32.0/geckodriver-v0.32.0-linux64.tar.gz
-        tar -xzf geckodriver-v0.32.0-linux64.tar.gz
+        # Remove any existing geckodriver
+        sudo rm -f /usr/local/bin/geckodriver
+        # Download and install the compatible geckodriver version
+        wget https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+        tar -xzf geckodriver-v0.35.0-linux64.tar.gz
         sudo mv geckodriver /usr/local/bin/
 
     - name: Run Selenium script
