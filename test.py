@@ -12,9 +12,8 @@ try:
         "download_url":download_link,
         "date":uploading_date
     }
+    print(data)
 
-    return data
 
 except Exception as e:
     print(str(e))
-    return {}
